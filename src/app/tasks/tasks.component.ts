@@ -9,7 +9,7 @@ import { TaskComponent } from "./task/task.component";
   imports: [TaskComponent]
 })
 export class TasksComponent {
-  @Input({required: true}) id!: string;
+  @Input({required: true}) userId!: string;
   @Input({required: true}) name!: string;
 
 tasks = [
@@ -38,4 +38,7 @@ tasks = [
   },
 ]
 
+get selectedUserTasks() {
+  return this.tasks.filter((task) => task.userId === this.userId); 
+}
 }
