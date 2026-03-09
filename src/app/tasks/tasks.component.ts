@@ -4,11 +4,9 @@ import { NewTaskComponent } from './new-task/new-task.component';
 import { type NewTaskData } from './task/task.model';
 
 @Component({
-  selector: 'app-tasks',
-  standalone: true,
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css'],
-  imports: [TaskComponent, NewTaskComponent]
+    selector: 'app-tasks',
+    templateUrl: './tasks.component.html',
+    styleUrls: ['./tasks.component.css'],
 })
 export class TasksComponent {
   @Input({required: true}) userId!: string;
