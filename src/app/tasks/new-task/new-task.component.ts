@@ -7,7 +7,7 @@ import {type NewTaskData } from '../task/task.model';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './new-task.component.html',
-  styleUrl: './new-task.component.css'
+ styleUrls: ['./new-task.component.css']
 })
 export class NewTaskComponent {
 @Output() cancel = new EventEmitter<void>()
