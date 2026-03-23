@@ -1,0 +1,37 @@
+<div class="backdrop" (click)="onCancel()"></div>
+
+<dialog open>
+  <h2>Edit Task</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <p>
+      <label for="title">Title</label>
+      <input id="title" name="title" [(ngModel)]="editableTask.title" />
+    </p>
+
+    <p>
+      <label for="summary">Summary</label>
+      <textarea id="summary" name="summary" rows="3" [(ngModel)]="editableTask.summary"></textarea>
+    </p>
+
+    <p>
+      <label for="date">Due Date</label>
+      <input id="date" type="date" name="dueDate" [(ngModel)]="editableTask.dueDate" />
+    </p>
+
+    <p>
+      <label for="priority">Priority</label>
+      <select id="priority" name="priority" [(ngModel)]="editableTask.priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </p>
+
+    <p class="actions">
+      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="submit">Save</button>
+    </p>
+
+  </form>
+</dialog>

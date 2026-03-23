@@ -5,18 +5,18 @@ div {
 }
 
 button {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1.5rem 1rem;
-  background-color: #433352;
-  color: #c3b3d1;
-  border: none;
-  font: inherit;
-  cursor: pointer;
   width: 100%;
-  min-width: 10rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #c3b3d1;
+  padding: 0.6rem 0.9rem;   /* smaller padding */
+  border-radius: 8px;
+
+  background-color: #433352;
+  border: none;
+  cursor: pointer;
+
   text-align: left;
 }
 

@@ -97,17 +97,14 @@ button[type="submit"]:active {
 
 .priority.low {
   color: #4caf50;
-  outline-color: black;
 }
 
 .priority.medium {
-  color: #d6a309;
-  outline-color: black;
+  color: #f7b801;
 }
 
 .priority.high {
   color: #ff0000;
-  outline-color: black;
 }
 
 select {

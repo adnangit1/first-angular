@@ -2,6 +2,14 @@
   <app-new-task (cancel)="onCancelAddTask()" (add)="onAddTask($event)" />
 }
 
+@if (editingTask) {
+  <app-edit-task
+    [task]="editingTask"
+    (cancel)="editingTask = null"
+    (save)="onSaveEditedTask($event)"
+  />
+}
+
 <section id="tasks">
   <header>
     <h2>{{ name }}'s Tasks</h2>
@@ -12,10 +20,13 @@
 
   <ul>
     @for (task of selectedUserTasks; track task.id) {
-         <li>
-        <app-task [task]="task" (complete)="onCompleteTask($event)" />
-    </li>
-
+      <li>
+        <app-task
+          [task]="task"
+          (complete)="onCompleteTask($event)"
+          (edit)="onStartEditTask($event)"
+        />
+      </li>
     }
   </ul>
 </section>
