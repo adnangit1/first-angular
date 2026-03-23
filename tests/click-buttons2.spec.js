@@ -4,7 +4,6 @@ test('click all visible elements safely', async ({ page }) => {
   await page.goto('https://ceteq.de/', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(2000);
 
-  // Accept cookies if present
   try {
     const cookieBtn = page.locator('button:has-text("Akzeptieren"), button:has-text("Accept")');
     if (await cookieBtn.first().isVisible()) {
@@ -43,3 +42,5 @@ test('click all visible elements safely', async ({ page }) => {
 
   console.log('Done clicking all visible elements.');
 });
+
+//Issue #3
