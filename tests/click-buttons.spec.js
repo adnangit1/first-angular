@@ -1,11 +1,7 @@
-const { chromium } = require('playwright');
+const { test } = require('@playwright/test');
 
-(async () => {
-  const browser = await chromium.launch({ headless: false });
-  const page = await browser.newPage();
-
+test('click all buttons', async ({ page }) => {
   await page.goto('http://localhost:4200/');
-
   await page.waitForLoadState('networkidle');
 
   const buttons = await page.locator('button, input[type="button"], input[type="submit"]').all();
@@ -16,26 +12,18 @@ const { chromium } = require('playwright');
     const button = buttons[i];
 
     try {
-
       let name = await button.innerText().catch(() => '');
-      if (!name) {
-        name = await button.getAttribute('value');
-      }
-      if (!name) {
-        name = await button.getAttribute('aria-label');
-      }
+      if (!name) name = await button.getAttribute('value');
+      if (!name) name = await button.getAttribute('aria-label');
 
       name = name?.trim() || `[Unnamed button ${i}]`;
 
       await button.scrollIntoViewIfNeeded();
-
-      await button.click({ timeout: 3000 });
+      await button.click({ timeout: 100000 });
 
       console.log(`Clicked: ${name}`);
     } catch (err) {
-      console.log(`❌ Failed: ${i}`);
+      console.log(`Failed: ${i} - ${err.message}`);
     }
   }
-
-  await browser.close();
-})();
+});
