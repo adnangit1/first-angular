@@ -42,5 +42,3 @@ test('click all visible elements safely', async ({ page }) => {
 
   console.log('Done clicking all visible elements.');
 });
-
-//Issue #3
