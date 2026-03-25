@@ -26,14 +26,7 @@ app.get("/todos", async (req, res) => {
   res.status(200).json({ todos: tododata });
 });
 
-// 404
-app.use((req, res, next) => {
-  if (req.method === "OPTIONS") {
-    return next();
-  }
-  res.status(404).json({ message: "404 - Not Found" });
-});
- 
+
 app.get("/users", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json");
   const users = JSON.parse(fileContent);
@@ -41,4 +34,13 @@ app.get("/users", async (req, res) => {
   res.status(200).json({ users });
 });
 
-app.listen(4200, () => console.log("Server running on http://localhost:4200"));
+// 404
+app.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    return next();
+  }
+  res.status(404).json({ message: "404 - Not Found" });
+});
+
+
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));
