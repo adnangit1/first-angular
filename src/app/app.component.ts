@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   title = 'first-angular-app';
 
-  users: any[] = []; // ← NOW from backend
+  users: any[] = []; // b
   selectedUserId?: string;
 
   constructor(private userService: UserService) {}
